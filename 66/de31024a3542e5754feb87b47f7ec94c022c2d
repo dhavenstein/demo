@@ -1,0 +1,23 @@
+pyproject.toml
+  s_0df645b5fac069::t_2cf94ddd4c96a5 1-9
+.python-version
+  s_0df645b5fac069::t_d82f8c31d6c531 1
+main.py
+  s_0df645b5fac069::t_77fe3b78515512 1-8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "66de31024a3542e5754feb87b47f7ec94c022c2d",
+  "prompts": {},
+  "sessions": {
+    "s_0df645b5fac069": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "74244da5-440e-4934-b20a-746685ee8f80",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Diego Havenstein <diego@ww-lab.de>"
+    }
+  }
+}
