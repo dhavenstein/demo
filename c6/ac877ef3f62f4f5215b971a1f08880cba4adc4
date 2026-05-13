@@ -1,0 +1,14 @@
+.python-version
+  h_792342d5d22c99 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "c6ac877ef3f62f4f5215b971a1f08880cba4adc4",
+  "prompts": {},
+  "humans": {
+    "h_792342d5d22c99": {
+      "author": "Diego Havenstein <diego@ww-lab.de>"
+    }
+  }
+}
