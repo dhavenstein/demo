@@ -1,0 +1,9 @@
+[project]
+name = "demo-vibe-coding"
+version = "0.1.0"
+description = "FastAPI Hello World demo for MS vibe coding session"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+]
