@@ -1,0 +1,21 @@
+docs/superpowers/specs/2026-05-13-snake-game-design.md
+  s_002c3ba89f2bb9::t_b8226f044a7db6 24
+  s_002c3ba89f2bb9::t_5ee134f93dfc27 129-143
+  s_002c3ba89f2bb9::t_329549d60e2b99 180
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "6b7edfde5c69fa005b22158ee94b2bd231428ee7",
+  "prompts": {},
+  "sessions": {
+    "s_002c3ba89f2bb9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "36558147-566a-4954-ae8f-d34ce48bf688",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Diego Havenstein <diego@ww-lab.de>"
+    }
+  }
+}
