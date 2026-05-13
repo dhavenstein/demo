@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Snake</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="#/name" data-i18n="nav.name">Name</a>
+      <a href="#/play" data-i18n="nav.play">Play</a>
+      <a href="#/leaderboard" data-i18n="nav.leaderboard">Leaderboard</a>
+    </nav>
+    <select id="lang-select" aria-label="Language">
+      <option value="en">EN</option>
+      <option value="de">DE</option>
+      <option value="es">ES</option>
+    </select>
+  </header>
+
+  <main>
+    <section id="screen-name" class="screen">
+      <h1 data-i18n="name.title">Enter your name</h1>
+      <input id="name-input" maxlength="20" data-i18n-placeholder="name.placeholder" placeholder="Your name" />
+      <p id="name-error" class="error" hidden></p>
+      <button id="start-btn" data-i18n="name.start">Play</button>
+    </section>
+
+    <section id="screen-play" class="screen" hidden>
+      <div class="hud">
+        <span id="score-line">Apples: 0</span>
+        <span id="paused-line" hidden data-i18n="play.paused">Paused</span>
+      </div>
+      <canvas id="game-canvas" width="600" height="600"></canvas>
+      <p class="hint" data-i18n="play.resume_hint">Press Space to pause/resume</p>
+    </section>
+
+    <section id="screen-over" class="screen" hidden>
+      <h1 data-i18n="over.title">Game Over</h1>
+      <p id="over-score">You ate 0 apples</p>
+      <p id="over-reason"></p>
+      <p id="over-rank"></p>
+      <button id="again-btn" data-i18n="over.play_again">Play again</button>
+    </section>
+
+    <section id="screen-leaderboard" class="screen" hidden>
+      <h1 data-i18n="lb.title">Leaderboard</h1>
+      <table id="lb-table">
+        <thead>
+          <tr>
+            <th data-i18n="lb.col_rank">#</th>
+            <th data-i18n="lb.col_name">Name</th>
+            <th data-i18n="lb.col_score">Apples</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <p id="lb-empty" hidden data-i18n="lb.empty">No scores yet.</p>
+    </section>
+  </main>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>
