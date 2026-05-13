@@ -1,0 +1,19 @@
+docs/superpowers/plans/2026-05-13-snake-game.md
+  s_002c3ba89f2bb9::t_049c77fe588d93 1-1492
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "8691d44b8560a09fbeac7c390e8a29b1711f5a7c",
+  "prompts": {},
+  "sessions": {
+    "s_002c3ba89f2bb9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "36558147-566a-4954-ae8f-d34ce48bf688",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Diego Havenstein <diego@ww-lab.de>"
+    }
+  }
+}
