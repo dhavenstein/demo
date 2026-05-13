@@ -1,0 +1,19 @@
+README.md
+  s_002c3ba89f2bb9::t_97255902d06ddd 1-130
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.4",
+  "base_commit_sha": "7f6c6898ed413beca81b857becc29d05adb2b613",
+  "prompts": {},
+  "sessions": {
+    "s_002c3ba89f2bb9": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "36558147-566a-4954-ae8f-d34ce48bf688",
+        "model": "claude-opus-4-7"
+      },
+      "human_author": "Diego Havenstein <diego@ww-lab.de>"
+    }
+  }
+}
