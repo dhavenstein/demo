@@ -21,6 +21,7 @@ A browser-based, server-authoritative Snake game served by the existing FastAPI 
 | Speed | Start **6 ticks/sec**, +10% every 5 apples, capped at **~14 ticks/sec**. |
 | Controls | Arrow keys **and** WASD. **Space** = pause/resume. No mobile/touch (out of scope). |
 | Visuals | **Modern minimal**: slate-900 background, lime snake, red good apple, dark-purple bad apple with an "X" mark, no grid lines, no sound. |
+| Languages | **English, German, Spanish.** Language switcher visible on every screen. Default: browser locale (`navigator.language`) if it matches one of the supported languages, else English. Preference persisted in `localStorage`. |
 
 ## Architecture
 
@@ -125,6 +126,21 @@ Full state every tick (vs. deltas) keeps the protocol trivial; 30×30 + small JS
 - **Speed curve:** `ticks_per_sec = min(14, 6 * 1.1^(score // 5))`. The session sleeps `1/ticks_per_sec` between ticks.
 - **Forfeit:** WebSocket close mid-game cancels the tick task; **no score recorded**.
 
+## Internationalization (i18n)
+
+- **Supported languages:** English (`en`), German (`de`), Spanish (`es`).
+- **Strings live in a single JS module** `app/static/i18n.js` that exports an object of the shape `{ en: {key: "..."}, de: {...}, es: {...} }`. Every user-facing string in the UI comes from this module — no hardcoded text in `app.js` or `index.html` (HTML uses `data-i18n="key"` attributes that `app.js` populates on language change).
+- **Language switcher:** a small dropdown / segmented control in the top-right nav bar, visible on all screens. Selecting a language re-renders all `data-i18n` nodes and updates dynamic strings (score line, game-over reason, etc.).
+- **Default language detection:** on first load, read `localStorage.lang` if set; else pick the first match from `navigator.languages` against `['en','de','es']`; else fall back to `en`.
+- **Server messages stay machine-readable.** The server sends codes (e.g., `"reason":"bad_apple"`); the client maps them to translated strings. This keeps the protocol stable across languages.
+- **Keys to translate (initial set):**
+  - Nav: `nav.name`, `nav.play`, `nav.leaderboard`
+  - Name screen: `name.title`, `name.placeholder`, `name.start`, `name.error_empty`, `name.error_too_long`, `name.error_invalid_chars`
+  - Play screen: `play.score` (`"Apples: {n}"`), `play.paused`, `play.resume_hint` (`"Press Space to resume"`)
+  - Game Over screen: `over.title`, `over.score` (`"You ate {n} apples"`), `over.reason_wall`, `over.reason_self`, `over.reason_bad_apple`, `over.rank` (`"Rank: #{n}"`), `over.no_rank`, `over.play_again`
+  - Leaderboard screen: `lb.title`, `lb.col_rank`, `lb.col_name`, `lb.col_score`, `lb.empty`
+- **Pluralization:** simple `{n}` interpolation. Snake-game scores are small integers; no need for ICU MessageFormat.
+
 ## Error Handling
 
 - **Invalid WS message:** server sends `{"type":"error",...}` and closes. No crash.
@@ -161,6 +177,7 @@ app/
     index.html
     styles.css
     app.js
+    i18n.js
 tests/
   test_game.py
   test_leaderboard.py
